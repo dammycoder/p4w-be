@@ -67,7 +67,7 @@ class VolunteerController extends Controller
             'hopes' => $request->input('hopes'),
         ]);
 
-        $receiptients = ['damilola.gabriel@tagenergygroup.net'];
+        $receiptients = [$request->email];
         $data = ['name'=> $request->firstName];
         $error = "";
         try {

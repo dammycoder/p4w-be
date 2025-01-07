@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SubscriberMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Subscriber;
 
@@ -31,6 +33,18 @@ class SubscriberController extends Controller
             'email' => $request->email,
             'unsubscribed' => false, 
         ]);
+
+        try {
+            Mail::to($request->email)
+                ->bcc('contact@partnershipforwellbeing.org')
+                ->send(new SubscriberMail());
+        } catch (\Exception $e) {
+            dd($e);
+            return response()->json([
+                'error' => 'Error Subscribing',
+            ], 422);
+        }
+
 
         return response()->json([
             'message' => 'Subscription Successful!',

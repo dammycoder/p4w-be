@@ -286,20 +286,6 @@ class PostsTableSeeder extends Seeder
                 'order'        => 14,
             ])->save();
         }
-        $dataRow = $this->dataRow($postDataType, 'featured');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'checkbox',
-                'display_name' => __('voyager::seeders.data_rows.featured'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 15,
-            ])->save();
-        }
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
@@ -336,7 +322,7 @@ class PostsTableSeeder extends Seeder
                 'meta_description' => 'This is the meta description',
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
-                'featured'         => 0,
+                'tags' => json_encode(['Beauty', 'Health', 'Wellbeing'])
             ])->save();
         }
 
@@ -355,7 +341,7 @@ class PostsTableSeeder extends Seeder
                 'meta_description' => 'Meta Description for sample post',
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
-                'featured'         => 0,
+                'tags' => json_encode(['Beauty', 'Health', 'Wellbeing'])
             ])->save();
         }
 
@@ -372,7 +358,7 @@ class PostsTableSeeder extends Seeder
                 'meta_description' => 'This is the meta description',
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
-                'featured'         => 0,
+                'tags' => json_encode(['Beauty', 'Health', 'Wellbeing'])
             ])->save();
         }
 
@@ -391,7 +377,7 @@ class PostsTableSeeder extends Seeder
                 'meta_description' => 'this be a meta descript',
                 'meta_keywords'    => 'keyword1, keyword2, keyword3',
                 'status'           => 'PUBLISHED',
-                'featured'         => 0,
+                'tags' => json_encode(['Beauty', 'Health', 'Wellbeing'])
             ])->save();
         }
     }

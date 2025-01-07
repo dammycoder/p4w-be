@@ -16,7 +16,6 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id');
-            $table->integer('category_id')->nullable();
             $table->string('title');
             $table->string('seo_title')->nullable();
             $table->text('excerpt');
@@ -26,7 +25,7 @@ class CreatePostsTable extends Migration
             $table->text('meta_description');
             $table->text('meta_keywords');
             $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
-            $table->boolean('featured')->default(0);
+            $table->json('tags');
             $table->timestamps();
 
             //$table->foreign('author_id')->references('id')->on('users');
