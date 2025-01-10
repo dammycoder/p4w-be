@@ -194,7 +194,7 @@ a[x-apple-data-detectors],
                          <tr class="links-images-top">
                           <td align="center" valign="top" width="33.33%" style="Margin:0;border:0;padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px">
                            <div style="vertical-align:middle;display:block">
-                            <a target="_blank" href="" style="mso-line-height-rule:exactly;text-decoration:none;font-family:arial, 'helvetica neue', helvetica, sans-serif;display:block;color:#999999;font-size:12px"><img title="Website" alt="" width="16" src="https://my.stripo.email/resources/coediting/assets/previews/default-img.png" height="16" style="display:inline !important;font-size:14px;border:0;outline:none;text-decoration:none;vertical-align:middle;padding-bottom:5px"><br>Website</a>
+                            <a target="_blank"  href="https://www.partnershipforwe/contactllbeing.org"  style="mso-line-height-rule:exactly;text-decoration:none;font-family:arial, 'helvetica neue', helvetica, sans-serif;display:block;color:#999999;font-size:12px"><img title="Website" alt="" width="16" src="https://my.stripo.email/resources/coediting/assets/previews/default-img.png" height="16" style="display:inline !important;font-size:14px;border:0;outline:none;text-decoration:none;vertical-align:middle;padding-bottom:5px"><br>Website</a>
                            </div></td>
                           <td align="center" valign="top" width="33.33%" style="Margin:0;border:0;padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px">
                            <div style="vertical-align:middle;display:block">
@@ -202,7 +202,7 @@ a[x-apple-data-detectors],
                            </div></td>
                           <td align="center" valign="top" width="33.33%" style="Margin:0;border:0;padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px">
                            <div style="vertical-align:middle;display:block">
-                            <a target="_blank" href="https://www.partnershipforwe/contactllbeing.org/" style="mso-line-height-rule:exactly;text-decoration:none;font-family:arial, 'helvetica neue', helvetica, sans-serif;display:block;color:#999999;font-size:12px"><img title="Help" alt="" width="16" src="https://my.stripo.email/resources/coediting/assets/previews/default-img.png" height="16" style="display:inline !important;font-size:14px;border:0;outline:none;text-decoration:none;vertical-align:middle;padding-bottom:5px"><br>Help</a>
+                            <a target="_blank" href="https://www.partnershipforwe/contactllbeing.org/contact" style="mso-line-height-rule:exactly;text-decoration:none;font-family:arial, 'helvetica neue', helvetica, sans-serif;display:block;color:#999999;font-size:12px"><img title="Help" alt="" width="16" src="https://my.stripo.email/resources/coediting/assets/previews/default-img.png" height="16" style="display:inline !important;font-size:14px;border:0;outline:none;text-decoration:none;vertical-align:middle;padding-bottom:5px"><br>Help</a>
                            </div></td>
                          </tr>
                        </table></td>

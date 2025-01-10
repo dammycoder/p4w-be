@@ -17,7 +17,7 @@ Route::get('/all', function () {
     return $page;
 });
 
-Route::post('/volunteer', [VolunteerController::class, 'submit_volunteer_form']);
+Route::post('/volunteer', [VolunteerController::class, 'submit_volunteer_form'])->middleware('throttle:5,60'); 
 Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 Route::post('/contact', [ContactUsController::class, 'store']);
 Route::get('/blogs', [PostController::class, 'get_all_blogs']);

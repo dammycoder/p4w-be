@@ -27,10 +27,12 @@ class ContactUsController extends Controller
             'message' => $validated['message'],
         ]);
 
-        $data = ['name'=> $validated['message'], 'message'=> $validated['message']];
+
+        $data = ['name'=> $validated['name'], 'message'=> $validated['message']];
+
         $error = "";
         try {
-            Mail::to($validated['name'])
+            Mail::to($validated['email'])
                 ->bcc('contact@partnershipforwellbeing.org')
                 ->send(new ContactMail($data));
         } catch (\Exception $e) {

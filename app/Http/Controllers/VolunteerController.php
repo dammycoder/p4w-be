@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Mail\VolunteerMail;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Volunteer;
@@ -15,6 +16,7 @@ class VolunteerController extends Controller
     public function submit_volunteer_form(Request $request)
     {
         $rules = [
+            'gRecaptchaToken' => 'required|string',
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'age' => 'required|integer|min:12|max:100',
@@ -39,13 +41,27 @@ class VolunteerController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            $messages = $validator->getMessageBag();    
+            $messages = $validator->getMessageBag();
             return response()->json([
                 'error' => $messages->first(),
             ], 422);
         }
 
-    
+        $secretKey = env('RECAPTCHA_SECRET_KEY');
+        $recaptchaResponse = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => $secretKey,
+            'response' => $request->input('gRecaptchaToken'),
+        ]);
+
+        $recaptchaData = $recaptchaResponse->json();
+
+        if (!$recaptchaData['success'] || $recaptchaData['score'] < 0.7) {
+            return response()->json([
+                'message' => 'reCAPTCHA validation failed',
+            ], 400);
+        }
+
+        
         Volunteer::create([
             'first_name' => $request->input('firstName'),
             'last_name' => $request->input('lastName'),
@@ -68,10 +84,10 @@ class VolunteerController extends Controller
         ]);
 
         $receiptients = [$request->email];
-        $data = ['name'=> $request->firstName];
+        $data = ['name' => $request->firstName];
         $error = "";
         try {
-            Mail::to( $receiptients)
+            Mail::to($receiptients)
                 ->bcc('contact@partnershipforwellbeing.org')
                 ->send(new VolunteerMail($data));
         } catch (\Exception $e) {
@@ -86,5 +102,5 @@ class VolunteerController extends Controller
             'description' => 'Please watch out for a confirmation email within the next 24 hours. Partnership for Wellbeing reserves the right to decline your request to volunteer.'
         ], 200);
     }
-    
+
 }
